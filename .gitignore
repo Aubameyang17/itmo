@@ -1,2 +1,3 @@
 historical_currency_exchange.parquet
 transaction_fraud_data.parquet
+.venv
