@@ -1,15 +1,11 @@
 import pandas as pd
 import seaborn as sns
 import matplotlib
-matplotlib.use('Agg')  # Без GUI
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-import os
 
 # Загружаем данные
 df = pd.read_parquet("transaction_fraud_data.parquet")
-
-# Создаем директорию для графиков
-os.makedirs("eda_charts", exist_ok=True)
 
 # 1. Распределение суммы транзакций (лог-шкала)
 plt.figure(figsize=(10, 6))
@@ -19,7 +15,7 @@ plt.title("Распределение суммы транзакций (лога�
 plt.xlabel("Сумма транзакции")
 plt.ylabel("Количество")
 plt.tight_layout()
-plt.savefig("eda_charts/amount_distribution.png")
+plt.savefig("amount_distribution.png")
 plt.close()
 
 # 2. Количество транзакций по типу карты
@@ -29,7 +25,7 @@ plt.title("Частота использования типов карт")
 plt.xlabel("Количество транзакций")
 plt.ylabel("Тип карты")
 plt.tight_layout()
-plt.savefig("eda_charts/card_type_frequency.png")
+plt.savefig("card_type_frequency.png")
 plt.close()
 
 # 3. Доля мошеннических транзакций
@@ -39,7 +35,7 @@ fraud_counts.plot(kind='pie', autopct='%1.1f%%', labels=["Не мошеннич�
 plt.title("Распределение мошеннических транзакций")
 plt.ylabel("")
 plt.tight_layout()
-plt.savefig("eda_charts/fraud_pie_chart.png")
+plt.savefig("fraud_pie_chart.png")
 plt.close()
 
-print("✅ Графики успешно сохранены в папку 'eda_charts'")
+print("Графики успешно сохранены")
